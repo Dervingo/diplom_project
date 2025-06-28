@@ -4,10 +4,10 @@
     <!-- В дальнейшем тут будет создано полноценное меню -->
     <nav class="navbar navbar-light" style="background-color: lightskyblue">
       <div class="container">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="{% url 'diplom:index' %}">
           <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
           <!-- тег span используется для добавления нужных стилей отдельным участкам текста -->
-          <span style="color:red">Dip</span>loma
+          <span style="color:red">Dip</span>lom
         </a>
         <ul class="nav nav-pills"> 
           {% with request.resolver_match.view_name as view_name %} 
@@ -16,7 +16,7 @@
             {% if view_name  == 'about:author' %} 
             active
             {% endif %}"
-            href="">Об авторе</a> 
+            href="">О сайте</a> 
           </li> 
           <li class="nav-item"> 
             <a class="nav-link
@@ -31,7 +31,7 @@
             {% if view_name == 'posts:post-create' %}
             active
             {% endif %}" 
-            href="">Новая запись</a> 
+            href="{% url 'diplom_spo:diplom_create' %}">Новый документ</a> 
           </li> 
           <li class="nav-item">  
             <a class="nav-link link-light

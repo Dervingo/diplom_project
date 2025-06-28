@@ -3,40 +3,86 @@
 Дипломы
 {% endblock %}
 {% block content %}
-<h1>Дипломы СПО</h1>
+<div>
+    <!-- Таблица со списком дипломов -->
+    <table class="diploma-table">
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Название диплома</th>
+                <th>Год</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if diploms %}
+                {% for diplom in diploms %}
+                    <tr>
+                        <td>{{ diplom.org_name }}</td>
+                        <td>{{ diplom.speciality }}</td>
+                        <td>{{ diplom.year }}</td>
+                        <td>
+                            <!-- Ссылка на редактирование -->
+                            <a href="{% url 'diplom:diplom_edit' diplom.pk %}">Редактировать</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4">Нет данных для отображения.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
 
-<!-- Кнопка для добавления нового диплома -->
-<a href="{% url 'diplom_spo:diplom_create' %}">Добавить новый диплом</a>
+    header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-<!-- Таблица со списком дипломов -->
-<table>
-    <thead>
-        <tr>
-            <th>ФИО</th>
-            <th>Название диплома</th>
-            <th>Год</th>
-            <th>Действия</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% if diplom_spo %}
-        {% for diplom in diplom_spo %}
-        <tr>
-            <td>{{ diploma.full_name }}</td>
-            <td>{{ diploma.title }}</td>
-            <td>{{ diploma.year }}</td>
-            <td>
-                <!-- Ссылка на редактирование -->
-                <a href="{% url 'diplom_spo:diplom_edit' diplom.pk %}">Редактировать</a>
-            </td>
-        </tr>
-        {% endfor %}
-    {% else %}
-        <tr>
-            <td colspan="4">Нет данных для отображения.</td>
-        </tr>
-    {% endif %}
-    </tbody>
-</table>
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
 
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .diploma-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .diploma-table th, .diploma-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .diploma-table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .diploma-table tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
 {% endblock %}

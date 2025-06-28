@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Diplom
 from .forms import DiplomForm
+from django.urls.base import reverse
 
 
 def index(request):
@@ -9,8 +10,8 @@ def index(request):
 
 
 def diplom_list(request):
-    diplomas = Diplom.objects.all()
-    return render(request, 'diplom/diplom_list.html', {'diplomas': diplomas})
+    diploms = Diplom.objects.all()
+    return render(request, 'diplom/diplom_list.html', {'diploms': diploms})
 
 
 def diplom_edit(request, pk):
@@ -22,7 +23,7 @@ def diplom_edit(request, pk):
             return redirect('diplom_list')
     else:
         form = DiplomForm(instance=diplom)
-    return render(request, 'diplom_spo/diplom_form.html', {'form': form})
+    return render(request, 'diplom/diplom_form.html', {'form': form})
 
 
 def diplom_create(request):
@@ -33,4 +34,16 @@ def diplom_create(request):
             return redirect('diplom_list')
     else:
         form = DiplomForm()
-    return render(request, 'diplom_spo/diplom_form.html', {'form': form})
+    return render(request, 'diplom/diplom_form.html', {'form': form})
+
+
+# def diplom_create(request):
+#     form = DiplomForm(
+#         request.POST or None,
+#         files=request.FILES or None
+#     )
+#     if form.is_valid():
+#         form.save()  # сохраняем паспорт в базу данных
+#         return redirect(reverse('diplom:index'))  # перенаправляем на главную страницу
+#     return render(request, 'diplom/diplom_create.html', {'form': form})
+

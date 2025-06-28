@@ -6,5 +6,6 @@ from .models import Diplom
 class DiplomForm(forms.ModelForm):
     class Meta:
         model = Diplom
-        fields = ('student_name', 'org_name', 'title',
-                  'supervisor', 'year', 'description', )
+        fields = ('org_name', 'qualification', 'ser_number', 'reg_number',
+                  'grant_date', 'student_name', 'speciality', 'chairman',
+                  'supervisor', 'year', 'copy', )

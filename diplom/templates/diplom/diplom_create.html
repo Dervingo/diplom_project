@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+  {% if not is_edit %}
+    Создание записи о дипломе
+  {% else %}
+    Редактирование записи о дипломе
+  {% endif %}
+{% endblock %}
+{% block content %}
+  {% if is_edit %}
+    {% with form_title='Редактирование записи о дипломе' form_url='diplom_edit' url_param=diplom_id button_name='Редактировать' %}
+      {% include 'templates/diplom/diplom_edit.html' %}
+    {% endwith %}
+  {% else %}
+    {% with form_title='Создание записи о дипломе' form_url='diplom_create' button_name='Создать запись' %}
+      {% include 'templates/diplom/diplom_form.html' %}
+    {% endwith %}
+  {% endif %}
+{% endblock %}
