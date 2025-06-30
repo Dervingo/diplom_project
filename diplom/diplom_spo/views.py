@@ -20,7 +20,7 @@ def diplom_edit(request, pk):
         form = DiplomForm(request.POST, instance=diplom)
         if form.is_valid():
             form.save()
-            return redirect('diplom_list.html')
+            return redirect(reverse('diplom_spo:index'))
     else:
         form = DiplomForm(instance=diplom)
     return render(request, 'includes/diplom_form.html', {'form': form})
@@ -31,7 +31,7 @@ def diplom_create(request):
         form = DiplomForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('diplom_list.html')
+            return redirect(reverse('diplom_spo:index'))
     else:
         form = DiplomForm()
     return render(request, 'includes/diplom_form.html', {'form': form})
@@ -46,4 +46,3 @@ def diplom_create(request):
 #         form.save()  # сохраняем паспорт в базу данных
 #         return redirect(reverse('diplom:index'))  # перенаправляем на главную страницу
 #     return render(request, 'diplom/diplom_create.html', {'form': form})
-

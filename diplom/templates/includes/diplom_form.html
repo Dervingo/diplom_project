@@ -7,13 +7,18 @@
   {% endif %}
 {% endblock %}
 {% block content %}
-    <body>
+{% if form.errors %}
+<div class="errors">
+    {{ form.errors }}
+</div>
+{% endif %}
+    <div>
         <h1>Введите данные</h1>
-        <form method="post">
+        <form method="post" action="{% url 'diplom_spo:diplom_create' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Сохранить</button>
         <a href="{% url 'diplom_spo:index' %}">Отмена</a>
         </form>
-    </body>
+      </div>
 {% endblock %}

@@ -40,9 +40,9 @@ class Diplom(models.Model):
     year = models.DateField(verbose_name="Дата решения",
                             help_text="Введите дату решения",
                             )
-    copy = models.FileField(verbose_name="Копия диплома",
-                            help_text="Вставьте копию диплома",
-                            )
+    copy = models.ImageField(verbose_name="Копия диплома",
+                             help_text="Вставьте копию диплома",
+                             )
 
     class Meta:
         ordering = ('year',)
