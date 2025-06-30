@@ -4,7 +4,7 @@
     <!-- В дальнейшем тут будет создано полноценное меню -->
     <nav class="navbar navbar-light" style="background-color: lightskyblue">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'diplom:index' %}">
+        <a class="navbar-brand" href="{% url 'diplom_spo:index' %}">
           <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
           <!-- тег span используется для добавления нужных стилей отдельным участкам текста -->
           <span style="color:red">Dip</span>lom
@@ -28,7 +28,7 @@
             {% if user.is_authenticated %} 
           <li class="nav-item">  
             <a class="nav-link
-            {% if view_name == 'posts:post-create' %}
+            {% if view_name == 'diplom_spo:diplom_create' %}
             active
             {% endif %}" 
             href="{% url 'diplom_spo:diplom_create' %}">Новый документ</a> 

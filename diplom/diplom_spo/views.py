@@ -5,11 +5,11 @@ from .forms import DiplomForm
 from django.urls.base import reverse
 
 
+# def index(request):
+#     return HttpResponse('Диплом ПОКАЖИ!!!!!')
+
+
 def index(request):
-    return HttpResponse('Диплом ПОКАЖИ!!!!!')
-
-
-def diplom_list(request):
     diploms = Diplom.objects.all()
     return render(request, 'diplom/diplom_list.html', {'diploms': diploms})
 
@@ -20,10 +20,10 @@ def diplom_edit(request, pk):
         form = DiplomForm(request.POST, instance=diplom)
         if form.is_valid():
             form.save()
-            return redirect('diplom_list')
+            return redirect('diplom_list.html')
     else:
         form = DiplomForm(instance=diplom)
-    return render(request, 'diplom/diplom_form.html', {'form': form})
+    return render(request, 'includes/diplom_form.html', {'form': form})
 
 
 def diplom_create(request):
@@ -31,10 +31,10 @@ def diplom_create(request):
         form = DiplomForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('diplom_list')
+            return redirect('diplom_list.html')
     else:
         form = DiplomForm()
-    return render(request, 'diplom/diplom_form.html', {'form': form})
+    return render(request, 'includes/diplom_form.html', {'form': form})
 
 
 # def diplom_create(request):

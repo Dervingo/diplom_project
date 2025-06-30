@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% block title %}
-Редактирование записи о дипломе
+{% if not is_edit %}
+    Создание записи о дипломе
+  {% else %}
+    Редактирование записи о дипломе
+  {% endif %}
 {% endblock %}
 {% block content %}
     <body>
-        <h1>Форма диплома</h1>
+        <h1>Введите данные</h1>
         <form method="post">
         {% csrf_token %}
-        {{ field.label }}
+        {{ form.as_p }}
         <button type="submit">Сохранить</button>
         <a href="{% url 'diplom_spo:index' %}">Отмена</a>
         </form>

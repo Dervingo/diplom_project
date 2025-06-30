@@ -8,12 +8,12 @@
 {% endblock %}
 {% block content %}
   {% if is_edit %}
-    {% with form_title='Редактирование записи о дипломе' form_url='diplom_edit' url_param=diplom_id button_name='Редактировать' %}
-      {% include 'templates/diplom/diplom_edit.html' %}
+    {% with form_title='Редактирование записи о дипломе' form_url='diplom_spo:diplom_edit' url_param=diplom_id button_name='Редактировать' has_link_to_reset_password=False %}
+      {% include 'templates/includes/diplom_form.html' %}
     {% endwith %}
   {% else %}
-    {% with form_title='Создание записи о дипломе' form_url='diplom_create' button_name='Создать запись' %}
-      {% include 'templates/diplom/diplom_form.html' %}
+    {% with form_title='Создание записи о дипломе' form_url='diplom_spo:diplom_create' button_name='Создать запись' has_link_to_reset_password=False %}
+      {% include 'templates/includes/diplom_form.html' %}
     {% endwith %}
   {% endif %}
 {% endblock %}
