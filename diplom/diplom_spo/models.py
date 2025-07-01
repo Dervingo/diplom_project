@@ -10,7 +10,7 @@ class Diplom(models.Model):
                                      verbose_name="Квалификация",
                                      help_text="Напишите квалификацию",
                                      default='Введите данные')
-    ser_number = models.CharField(max_length=100,
+    ser_number = models.CharField(max_length=15,
                                   verbose_name="Номер серии",
                                   help_text="Введите номер серии",
                                   default='Введите данные')
@@ -42,6 +42,8 @@ class Diplom(models.Model):
                             )
     copy = models.ImageField(verbose_name="Копия диплома",
                              help_text="Вставьте копию диплома",
+                             null=False,
+                             blank=False,
                              )
 
     class Meta:

@@ -8,7 +8,7 @@
     <table class="diploma-table">
         <thead>
             <tr>
-                <th>ФИО</th>
+                <th>Название образовательной организации</th>
                 <th>Специальность</th>
                 <th>Дата решения о выдаче</th>
                 <th>Действия</th>
@@ -23,7 +23,7 @@
                         <td>{{ diplom.year }}</td>
                         <td>
                             <!-- Ссылка на редактирование -->
-                            <a href="{% url 'diplom_spo:diplom_edit' diplom.pk %}">Редактировать</a>
+                            <a href="{% url 'diplom_spo:edit' diplom.pk %}">Редактировать</a>
                         </td>
                     </tr>
                 {% endfor %}

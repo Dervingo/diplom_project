@@ -5,7 +5,7 @@
 {% block content %}
     <body>
         <h1>Форма диплома</h1>
-        <form method="post" action="{% url 'diplom_spo:diplom_edit' diplom_id %}">
+        <form method="post" action="{% url 'diplom_spo:edit' diplom_id %}">
         {% csrf_token %}
         {{ field.label }}
         <button type="submit">Сохранить</button>

@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from diplom_spo import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', views.index,),
-    path('', include('diplom_spo.urls', namespace='diplom_spo'))
+    path('diplom/', include('diplom_spo.urls', namespace='diplom_spo'))
 ]

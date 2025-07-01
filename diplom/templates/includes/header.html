@@ -28,10 +28,10 @@
             {% if user.is_authenticated %} 
           <li class="nav-item">  
             <a class="nav-link
-            {% if view_name == 'diplom_spo:diplom_create' %}
+            {% if view_name == 'diplom_spo:create' %}
             active
             {% endif %}" 
-            href="{% url 'diplom_spo:diplom_create' %}">Новый документ</a> 
+            href="{% url 'diplom_spo:create' %}">Новый документ</a> 
           </li> 
           <li class="nav-item">  
             <a class="nav-link link-light

@@ -8,11 +8,11 @@
 {% endblock %}
 {% block content %}
   {% if is_edit %}
-    {% with form_title='Редактирование записи о дипломе' form_url='diplom_spo:diplom_edit' url_param=diplom_id button_name='Редактировать' has_link_to_reset_password=False %}
+    {% with form_title='Редактирование записи о дипломе' form_url='diplom_spo:edit' url_param=diplom_id button_name='Редактировать' has_link_to_reset_password=False %}
       {% include 'templates/includes/diplom_form.html' %}
     {% endwith %}
   {% else %}
-    {% with form_title='Создание записи о дипломе' form_url='diplom_spo:diplom_create' button_name='Создать запись' has_link_to_reset_password=False %}
+    {% with form_title='Создание записи о дипломе' form_url='diplom_spo:create' button_name='Создать запись' has_link_to_reset_password=False %}
       {% include 'templates/includes/diplom_form.html' %}
     {% endwith %}
   {% endif %}
