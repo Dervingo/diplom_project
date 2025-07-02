@@ -2,7 +2,7 @@
 {% block content %}
     <div>
         <h1>Введите данные</h1>
-        <form method="post" action="{% url 'diplom_spo:create' %}">
+        <form method="post" action="">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Сохранить</button>

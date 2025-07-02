@@ -42,8 +42,8 @@ class Diplom(models.Model):
                             )
     copy = models.ImageField(verbose_name="Копия диплома",
                              help_text="Вставьте копию диплома",
-                             null=False,
-                             blank=False,
+                             null=True,
+                             blank=True,
                              )
 
     class Meta:
