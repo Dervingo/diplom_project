@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}
+    Диплом: {{ diplom.student_name }}
+{% endblock %}
+{% block content %}
+    <div class="container py-5">
+        <div class="row">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    Организация: {{ diplom.org_name }}
+                </li>
+                <li class="list-group-item">
+                    Квалификация: {{ diplom.qualification }}
+                </li>
+                <li class="list-group-item">
+                    Номер серии: {{ diplom.ser_number }}
+                </li>
+                <li class="list-group-item">
+                    Регистрационный номер: {{ diplom.reg_number }}
+                </li>
+                <li class="list-group-item">
+                    Дата выдачи: {{ diplom.grant_date }}
+                </li>
+                <li class="list-group-item">
+                    ФИО студента: {{ diplom.student_name }}
+                </li>
+                <li class="list-group-item">
+                    Специальность: {{ diplom.speciality }}
+                </li>
+                <li class="list-group-item">
+                    Руководитель: {{ diplom.supervisor }}
+                </li>
+                <li class="list-group-item">
+                    Председатель экзаменационной комиссии: {{ diplom.chairman }}
+                </li>
+                <li class="list-group-item">
+                    Дата решения: {{ diplom.year }}
+                </li>
+                <li class="list-group-item">
+                    Копия диплома: {{ diplom.copy }}
+                </li>
+            </ul>
+        </div> 
+        <div class="col-md-6 offset-md-4">
+            <a class="btn btn-primary" href="{% url 'diplom_spo:edit' diplom.pk %}">
+                Редактировать
+            </a>
+        </div>
+    </div>     
+{% endblock %}
